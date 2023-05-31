@@ -1,0 +1,139 @@
+// variables
+$text-clr: hsla(251, 33%, 19%, 1);
+
+// mixins
+@mixin grainy-bg {
+  background: linear-gradient(
+      79deg,
+      rgba(246, 255, 222, 1),
+      rgba(227, 242, 193, 0.8)
+    ),
+    url(../media/grain.png);
+  background-size: cover;
+}
+
+// reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul > li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// css
+@font-face {
+  font-family: "Misto";
+  src: url("../fonts/Misto-r.ttf");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include grainy-bg;
+  font-family: "Poppins", sans-serif;
+  color: $text-clr;
+  padding-inline: 3%;
+}
+
+header {
+  height: 100vh;
+  line-height: 0.9;
+
+  .header_txt {
+    padding-right: 4.5%;
+  }
+
+  h1 {
+    font-family: "Misto", sans-serif;
+    font-size: clamp(36px, 4.5vw, 96px);
+    text-align: right;
+    margin-top: 20%;
+  }
+
+  p {
+    font-size: clamp(20px, 3vw, 68px);
+    text-align: right;
+  }
+}
+
+nav {
+  height: 5rem;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1% 3%;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+
+  a {
+    img {
+      height: 100%;
+    }
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 0.3em;
+    }
+  }
+}
+
+.nav_link {
+  display: inline-block;
+  position: relative;
+}
+
+.nav_link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ab828c;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav_link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
