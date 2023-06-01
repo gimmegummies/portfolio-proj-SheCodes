@@ -49,6 +49,7 @@ body {
 header {
   height: 100vh;
   line-height: 0.9;
+  border: dashed transparent 2px;
 }
 header .header_txt {
   padding-right: 4.5%;
@@ -112,4 +113,51 @@ nav ul li {
 .nav_link:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+header a.contact_link {
+  display: block;
+  margin: 8% auto 2%;
+  padding: 10px;
+  border-top: solid 2px hsl(251, 33%, 19%);
+  border-bottom: solid 2px hsl(251, 33%, 19%);
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+}
+header a.contact_link:hover {
+  letter-spacing: 6px;
+}
+
+.about_section {
+  background: url(../media/bg_beet.png), url(../media/bg_beet_vertical.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left, right;
+  padding: 3% 5%;
+}
+.about_section .about_wrapper {
+  width: 80%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 3%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.about_section h3 {
+  font-family: "Misto", sans-serif;
+  font-size: clamp(24px, 2rem, 46px);
+}
+.about_section p {
+  width: 60%;
+  margin: 1em auto;
+  font-size: clamp(14px, 1.1rem, 20px);
 }/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 // variables
 $text-clr: hsla(251, 33%, 19%, 1);
+$compliment-clr: #ab828c;
 
 // mixins
 @mixin grainy-bg {
@@ -62,9 +63,12 @@ body {
   padding-inline: 3%;
 }
 
+// HEADER
+
 header {
   height: 100vh;
   line-height: 0.9;
+  border: dashed transparent 2px;
 
   .header_txt {
     padding-right: 4.5%;
@@ -128,7 +132,7 @@ nav {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #ab828c;
+  background-color: $compliment-clr;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -137,3 +141,64 @@ nav {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+header a.contact_link {
+  display: block;
+  margin: 8% auto 2%;
+  padding: 10px;
+  border-top: solid 2px $text-clr;
+  border-bottom: solid 2px $text-clr;
+  width: fit-content;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    letter-spacing: 6px;
+  }
+}
+
+// ABOUT SECTION
+
+.about_section {
+  background: url(../media/bg_beet.png), url(../media/bg_beet_vertical.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left, right;
+  // border: solid black 1px;
+  padding: 3% 5%;
+
+  .about_wrapper {
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 3%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  h3 {
+    font-family: "Misto", sans-serif;
+    font-size: clamp(24px, 2rem, 46px);
+  }
+
+  p {
+    width: 60%;
+    margin: 1em auto;
+    font-size: clamp(14px, 1.1rem, 20px);
+  }
+}
+
+// todo: pay attention to header on small screens! alter the fixed nav and margin-top for text
+
+// media-query: 800px
+// nav: position relative
+// header: height 50vh
+// about section: change bg (remove one beet)
+// make burger menu
+// about section p: width make bigger (80%?)
