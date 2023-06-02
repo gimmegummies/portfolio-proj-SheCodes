@@ -15,13 +15,7 @@
       href="./media/favicon-32x32.png"
       type="image/x-icon"
     />
-    <!--  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap"
-      rel="stylesheet"
-    />
+    <base target="_blank" />
     <title>Portfolio - Frontend Developer Kseniia Rudenko</title>
     <link rel="stylesheet" href="./css/style.css" />
     <meta name="description" content="Frontend Developer Portfolio" />
@@ -30,7 +24,7 @@
   <body>
     <header>
       <nav>
-        <a href="/">
+        <a href="#">
           <img
             src="./media/beet_clr_sm.png"
             alt="beetroot image aka homepage link"
@@ -57,7 +51,7 @@
       >
     </header>
     <section class="about_section">
-      <div class="about_wrapper">
+      <div class="about_wrapper" id="about">
         <h3>About Me</h3>
         <p>
           In 2022, I embarked on my coding journey, and from the moment I
@@ -77,6 +71,97 @@
           incredibly fulfilling, and I'm excited to explore new technologies and
           expand my skillset.
         </p>
+      </div>
+    </section>
+    <section class="projects">
+      <h2>My Works</h2>
+      <div class="group">
+        <a
+          href="https://weather-appppp-shecodes.netlify.app/"
+          class="project_link"
+        >
+          <img
+            src="./media/weather_app.jpg"
+            alt="Weather App"
+            class="project_img"
+          />
+        </a>
+        <div class="project_descr">
+          <h3>Weather App</h3>
+          <p>
+            This project is a weather application built using HTML, CSS, and
+            JavaScript. It utilizes a weather API to fetch and display real-time
+            weather information for a given location. Users can check the
+            current weather conditions, temperature (both in Celsius and
+            Fahrenheit), and forecast.
+          </p>
+          <ul>
+            <li>Vanilla JS</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Sass</li>
+            <li>Moment.js</li>
+            <li>Geolocation API</li>
+            <li>Weather API</li>
+          </ul>
+          <a href="https://weather-appppp-shecodes.netlify.app/" id="launch_btn"
+            >launch</a
+          >
+        </div>
+      </div>
+      <div class="group reversed">
+        <a
+          href="https://gimmegummies.github.io/react-todo-app-ed/"
+          class="project_link"
+        >
+          <img src="./media/todo_app.jpg" alt="Todo App" class="project_img" />
+        </a>
+        <div class="project_descr">
+          <h3>To-do App</h3>
+          <p>
+            This project is a React-based todo application that allows users to
+            efficiently manage their tasks. With an intuitive user interface, it
+            provides features such as task creation, deletion, and marking tasks
+            as completed. The app's responsive design ensures a seamless
+            experience across different devices.
+          </p>
+          <ul>
+            <li>React.js</li>
+            <li>Sass</li>
+          </ul>
+          <a
+            href="https://gimmegummies.github.io/react-todo-app-ed/"
+            id="launch_btn"
+            >launch</a
+          >
+        </div>
+      </div>
+      <div class="group">
+        <a href="https://ukrainian-bestiary.netlify.app/" class="project_link">
+          <img
+            src="./media/bestiary_web.jpg"
+            alt="Ukrainian Bestiary webpage"
+            class="project_img"
+          />
+        </a>
+        <div class="project_descr">
+          <h3>Ukrainian Bestiary</h3>
+          <p>
+            This project is an interactive website showcasing Ukrainian mythical
+            creatures and folkloric beings. It provides an immersive experience
+            where users can explore a collection of fascinating creatures, read
+            captivating descriptions, and view magical illustrations. The
+            website aims to celebrate Ukrainian folklore and mythology, allowing
+            visitors to delve into the rich cultural heritage of Ukraine.
+          </p>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+          </ul>
+          <a href="https://ukrainian-bestiary.netlify.app/" id="launch_btn"
+            >launch</a
+          >
+        </div>
       </div>
     </section>
   </body>

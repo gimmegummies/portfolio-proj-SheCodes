@@ -66,6 +66,11 @@ header p {
 }
 
 nav {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
   height: 5rem;
   width: 90%;
   display: flex;
@@ -76,11 +81,6 @@ nav {
   transform: translate(-50%);
   padding: 1% 3%;
   background: rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.23);
 }
 nav a img {
   height: 100%;
@@ -105,7 +105,7 @@ nav ul li {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #ab828c;
+  background-color: rgb(171, 130, 140);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -139,6 +139,11 @@ header a.contact_link:hover {
   padding: 3% 5%;
 }
 .about_section .about_wrapper {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
   width: 80%;
   height: -moz-fit-content;
   height: fit-content;
@@ -146,11 +151,6 @@ header a.contact_link:hover {
   padding: 3%;
   text-align: center;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .about_section h3 {
   font-family: "Misto", sans-serif;
@@ -160,4 +160,127 @@ header a.contact_link:hover {
   width: 60%;
   margin: 1em auto;
   font-size: clamp(14px, 1.1rem, 20px);
+}
+
+section.projects {
+  text-align: center;
+  padding: 2% 5%;
+}
+section.projects h2 {
+  font-family: "Misto", sans-serif;
+  font-size: clamp(24px, 2rem, 46px);
+}
+section.projects .group {
+  margin-block: 2%;
+}
+section.projects .group img {
+  width: 100%;
+  border-radius: 15px;
+  margin-block: 1em;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s;
+}
+section.projects .group img:hover, section.projects .group img:active {
+  transform: scale(1.05);
+}
+section.projects .group .project_descr {
+  visibility: hidden;
+  position: absolute;
+}
+section.projects .group .project_descr ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8em;
+  margin-block: 2em 5em;
+}
+section.projects .group .project_descr ul li {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  background: rgba(170, 200, 167, 0.3);
+  color: rgba(38, 32, 64, 0.9);
+  padding: 5px 10px;
+}
+section.projects .group .project_descr a {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5em 1.4em;
+  position: relative;
+  transition: 0.5s;
+}
+section.projects .group .project_descr a:hover {
+  padding-right: 1.7em;
+  padding-left: 1.1em;
+}
+section.projects .group .project_descr a::after {
+  content: ">>";
+  position: absolute;
+  right: -10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+div.project_descr > a#launch_btn:hover:after {
+  opacity: 1;
+  right: 8px;
+}
+
+/***********************************************************************************/
+@media screen and (max-width: 1200px) {
+  header {
+    height: 60vh;
+  }
+  .about_section {
+    background: url(../media/bg_beet_vertical.png);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  section.projects .group .project_descr ul {
+    margin-block: 1em 3em;
+  }
+}
+@media screen and (max-width: 800px) {
+  header {
+    height: 40vh;
+  }
+  header nav {
+    position: relative;
+  }
+  .about_section {
+    padding-inline: 1%;
+  }
+  .about_wrapper > p {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 800px) {
+  section.projects {
+    padding: 5% 3%;
+  }
+  section.projects .group {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section.projects .group .project_link {
+    cursor: default;
+  }
+  section.projects .group .project_descr {
+    visibility: visible;
+    position: static;
+    align-self: center;
+  }
+  div.reversed .project_link {
+    order: 2;
+  }
+  div.reversed .project_descr {
+    order: 1;
+  }
 }/*# sourceMappingURL=style.css.map */

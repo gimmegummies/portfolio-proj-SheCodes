@@ -1,6 +1,6 @@
 // variables
 $text-clr: hsla(251, 33%, 19%, 1);
-$compliment-clr: #ab828c;
+$compliment-clr: rgb(171, 130, 140);
 
 // mixins
 @mixin grainy-bg {
@@ -11,6 +11,14 @@ $compliment-clr: #ab828c;
     ),
     url(../media/grain.png);
   background-size: cover;
+}
+
+@mixin glass-bg {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 // reset
@@ -88,6 +96,7 @@ header {
 }
 
 nav {
+  @include glass-bg;
   height: 5rem;
   width: 90%;
   display: flex;
@@ -98,11 +107,6 @@ nav {
   transform: translate(-50%);
   padding: 1% 3%;
   background: rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.23);
 
   a {
     img {
@@ -169,17 +173,13 @@ header a.contact_link {
   padding: 3% 5%;
 
   .about_wrapper {
+    @include glass-bg;
     width: 80%;
     height: fit-content;
     margin: 0 auto;
     padding: 3%;
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   h3 {
@@ -194,11 +194,150 @@ header a.contact_link {
   }
 }
 
-// todo: pay attention to header on small screens! alter the fixed nav and margin-top for text
+// PROJECTS SECTION
 
-// media-query: 800px
-// nav: position relative
-// header: height 50vh
-// about section: change bg (remove one beet)
-// make burger menu
-// about section p: width make bigger (80%?)
+section.projects {
+  text-align: center;
+  padding: 2% 5%;
+
+  h2 {
+    font-family: "Misto", sans-serif;
+    font-size: clamp(24px, 2rem, 46px);
+  }
+
+  .group {
+    margin-block: 2%;
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-block: 1em;
+      box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.25s;
+
+      &:hover,
+      &:active {
+        transform: scale(1.05);
+      }
+    }
+
+    .project_descr {
+      visibility: hidden;
+      position: absolute;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8em;
+        margin-block: 2em 5em;
+
+        li {
+          @include glass-bg;
+          background: rgba(170, 200, 167, 0.3);
+          color: rgba(38, 32, 64, 0.9);
+          padding: 5px 10px;
+        }
+      }
+
+      a {
+        @include glass-bg;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5em 1.4em;
+        position: relative;
+        transition: 0.5s;
+
+        &:hover {
+          padding-right: 1.7em;
+          padding-left: 1.1em;
+        }
+
+        &::after {
+          content: ">>";
+          position: absolute;
+          right: -10px;
+          opacity: 0;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+div.project_descr > a#launch_btn:hover:after {
+  opacity: 1;
+  right: 8px;
+}
+
+/***********************************************************************************/
+// MEDIA QUERIES
+
+@media screen and (max-width: 1200px) {
+  header {
+    height: 60vh;
+  }
+
+  .about_section {
+    background: url(../media/bg_beet_vertical.png);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  section.projects .group .project_descr ul {
+    margin-block: 1em 3em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    height: 40vh;
+
+    nav {
+      position: relative;
+    }
+  }
+
+  .about_section {
+    padding-inline: 1%;
+  }
+
+  .about_wrapper > p {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  section.projects {
+    padding: 5% 3%;
+
+    .group {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+
+      .project_link {
+        cursor: default;
+      }
+
+      .project_descr {
+        visibility: visible;
+        position: static;
+        align-self: center;
+      }
+    }
+
+    li {
+    }
+  }
+
+  div.reversed {
+    .project_link {
+      order: 2;
+    }
+    .project_descr {
+      order: 1;
+    }
+  }
+}
+
+// TODO: MAKE BURGER MENU + FOOTER
