@@ -159,12 +159,12 @@ header a.contact_link:hover {
 .about_section p {
   width: 60%;
   margin: 1em auto;
-  font-size: clamp(14px, 1.1rem, 20px);
+  font-size: clamp(0.9rem, 1.25vw, 1.2rem);
 }
 
 section.projects {
   text-align: center;
-  padding: 2% 5%;
+  padding: 5%;
 }
 section.projects h2 {
   font-family: "Misto", sans-serif;
@@ -232,6 +232,24 @@ div.project_descr > a#launch_btn:hover:after {
   right: 8px;
 }
 
+footer {
+  min-height: 3rem;
+  padding: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+footer .footer_icon {
+  font-size: clamp(24px, 4vw, 2rem);
+  color: #6d806c;
+  transition: all 0.25s ease-out;
+}
+footer .footer_icon:hover {
+  color: #aac8a7;
+  transform: rotate(-20deg);
+}
+
 /***********************************************************************************/
 @media screen and (max-width: 1200px) {
   header {
@@ -259,7 +277,7 @@ div.project_descr > a#launch_btn:hover:after {
 }
 @media screen and (min-width: 800px) {
   section.projects {
-    padding: 5% 3%;
+    padding: 6% 3%;
   }
   section.projects .group {
     display: grid;
