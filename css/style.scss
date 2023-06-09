@@ -162,6 +162,27 @@ header a.contact_link {
   }
 }
 
+// HAMBURGER MENU
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: $compliment-clr;
+}
+
+nav > ul.nav_menu.active {
+  left: 0;
+  padding-top: 3%;
+}
+
 // ABOUT SECTION
 
 .about_section {
@@ -316,7 +337,55 @@ footer {
 
     nav {
       position: relative;
+      align-items: center;
+
+      a {
+        height: 50px;
+      }
     }
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav_menu {
+    @include glass-bg;
+    background: rgba(255, 255, 255, 0.18);
+    position: fixed;
+    left: -120%;
+    top: 5rem;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s;
+
+    li {
+      padding: 0;
+
+      a {
+        height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  nav ul.nav_menu a::after {
+    transform: none;
+    background-color: transparent;
   }
 
   .about_section {
