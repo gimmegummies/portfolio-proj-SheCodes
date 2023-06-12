@@ -1,0 +1,321 @@
+// variables
+$text-clr: hsla(251, 33%, 19%, 1);
+$text-clr-lighter: hsla(251, 33%, 19%, 0.8);
+$compliment-clr: rgb(171, 130, 140);
+
+// mixins
+@mixin grainy-bg {
+  //   background: linear-gradient(
+  //       79deg,
+  //       rgb(197, 223, 128),
+  //       rgba(152, 164, 125, 0.8)
+  //     ),
+  //     url(../media/grain.png);
+  background: linear-gradient(
+      79deg,
+      rgba(246, 255, 222, 1),
+      rgba(227, 242, 193, 0.8)
+    ),
+    url(../media/grain.png);
+  background-size: cover;
+}
+
+@mixin glass-bg {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+// reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul > li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/****************** CSS ******************/
+// GENERAL CSS
+
+@font-face {
+  font-family: "Misto";
+  src: url("../fonts/Misto-r.ttf");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include grainy-bg;
+  font-family: "Poppins", sans-serif;
+  color: $text-clr;
+  padding-inline: 3%;
+}
+
+h1 {
+  font-family: "Misto", sans-serif;
+  font-size: clamp(34px, 3.8vw, 64px);
+}
+
+h2 {
+  color: $text-clr-lighter;
+  font-size: clamp(16px, 2vw, 34px);
+}
+
+// NAVIGATION SECTION
+
+nav {
+  @include glass-bg;
+  height: 5rem;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1% 3%;
+  background: rgba(255, 255, 255, 0.18);
+
+  a {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 0.3em;
+    }
+  }
+}
+
+.nav_link {
+  display: inline-block;
+  position: relative;
+}
+
+.nav_link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: $compliment-clr;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav_link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+// HAMBURGER MENU
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: $compliment-clr;
+}
+
+nav > ul.nav_menu.active {
+  left: 0;
+  padding-top: 3%;
+}
+
+// MAIN SECTION
+
+.main {
+  padding: 5%;
+  text-align: center;
+
+  .group {
+    display: grid;
+  }
+
+  img {
+    width: 100%;
+    margin-block: 0.5rem;
+    border-radius: 16px;
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.group_descr {
+  line-height: 1.3;
+}
+
+.projects_btn {
+  @include glass-bg;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5em 1.4em;
+  display: inline-block;
+  margin-block: 3%;
+  position: relative;
+  transition: 0.5s;
+
+  &:hover {
+    padding-right: 1.7em;
+    padding-left: 1.1em;
+  }
+
+  &::after {
+    content: ">>";
+    position: absolute;
+    right: -10px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+}
+
+div.group_descr > a.projects_btn:hover:after {
+  opacity: 1;
+  right: 8px;
+}
+
+// FOOTER
+
+footer {
+  min-height: 3rem;
+  padding: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  .footer_icon {
+    font-size: clamp(24px, 4vw, 2rem);
+    color: #6d806c;
+    transition: all 0.25s ease-out;
+
+    &:hover {
+      color: #aac8a7;
+      transform: rotate(-20deg);
+    }
+  }
+}
+
+/***********************************************************************************/
+// MEDIA QUERIES
+
+@media screen and (max-width: 800px) {
+  nav {
+    position: relative;
+    align-items: center;
+    height: fit-content;
+
+    a {
+      height: clamp(30px, 8vw, 50px);
+    }
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav_menu {
+    @include glass-bg;
+    background: rgba(255, 255, 255, 0.18);
+    position: fixed;
+    left: -120%;
+    top: 3rem;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s;
+
+    li {
+      padding: 0;
+
+      a {
+        height: 30px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  nav ul.nav_menu a::after {
+    transform: none;
+    background-color: transparent;
+  }
+
+  .main img {
+    margin-block: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  div.main {
+    margin-top: 5rem;
+  }
+
+  .group {
+    gap: 5%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  div.reversed {
+    .group_img {
+      order: 2;
+    }
+    .group_descr {
+      order: 1;
+    }
+  }
+}
