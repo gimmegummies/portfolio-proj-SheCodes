@@ -56,23 +56,10 @@ body {
   padding-inline: 3%;
 }
 
-header {
-  height: 100vh;
-  line-height: 0.9;
-  border: dashed transparent 2px;
-}
-header .header_txt {
-  padding-right: 4.5%;
-}
-header h1 {
+h1 {
   font-family: "Misto", sans-serif;
-  font-size: clamp(36px, 4.5vw, 96px);
-  text-align: right;
-  margin-top: 20%;
-}
-header p {
-  font-size: clamp(20px, 3vw, 68px);
-  text-align: right;
+  font-size: clamp(34px, 3.8vw, 64px);
+  margin-block: 3rem;
 }
 
 nav {
@@ -81,16 +68,21 @@ nav {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.23);
+  background: rgba(255, 255, 255, 0.18);
   height: 5rem;
   width: 90%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 2rem;
   left: 50%;
   transform: translate(-50%);
   padding: 1% 3%;
-  background: rgba(255, 255, 255, 0.18);
+  z-index: 2;
+}
+nav a {
+  height: 100%;
 }
 nav a img {
   height: 100%;
@@ -125,20 +117,8 @@ nav ul li {
   transform-origin: bottom left;
 }
 
-header a.contact_link {
-  display: block;
-  margin: 8% auto 2%;
-  padding: 10px;
-  border-top: solid 2px hsl(251, 33%, 19%);
-  border-bottom: solid 2px hsl(251, 33%, 19%);
-  width: -moz-fit-content;
-  width: fit-content;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  transition: all 0.3s ease-in-out;
-}
-header a.contact_link:hover {
-  letter-spacing: 6px;
+.nav_link_active {
+  font-weight: bold;
 }
 
 .hamburger {
@@ -160,80 +140,52 @@ nav > ul.nav_menu.active {
   padding-top: 3%;
 }
 
-.about_section {
-  background: url(../media/bg_beet.png), url(../media/bg_beet_vertical.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left, right;
-  padding: 3% 5%;
-}
-.about_section .about_wrapper {
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.23);
-  width: 80%;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: 0 auto;
-  padding: 3%;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.2);
-}
-.about_section h3 {
-  font-family: "Misto", sans-serif;
-  font-size: clamp(24px, 2rem, 46px);
-}
-.about_section p {
-  width: 60%;
-  margin: 1em auto;
-  font-size: clamp(0.9rem, 1.25vw, 1.2rem);
+section.main {
+  margin-top: 20%;
+  margin-bottom: 3rem;
+  padding-bottom: 5px;
 }
 
-section.projects {
-  text-align: center;
-  padding: 5%;
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 3%;
+  padding-bottom: 3rem;
+  margin-bottom: 100px;
 }
-section.projects h2 {
-  font-family: "Misto", sans-serif;
-  font-size: clamp(24px, 2rem, 46px);
-}
-section.projects .group {
-  margin-block: 2%;
-}
-section.projects .group img {
-  width: 100%;
-  border-radius: 15px;
-  margin-block: 1em;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s;
-}
-section.projects .group img:hover, section.projects .group img:active {
-  transform: scale(1.05);
-}
-section.projects .group .project_descr {
-  visibility: hidden;
-  position: absolute;
-}
-section.projects .group .project_descr ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8em;
-  margin-block: 2em 5em;
-}
-section.projects .group .project_descr ul li {
+
+.group {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.23);
-  background: rgba(170, 200, 167, 0.3);
-  color: rgba(38, 32, 64, 0.9);
-  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 1rem;
+  display: grid;
 }
-section.projects .group .project_descr a {
+.group img {
+  width: 90%;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.25s;
+}
+.group img:hover, .group img:active {
+  transform: scale(1.03);
+}
+.group .group_descr {
+  margin-top: 1.5rem;
+  padding-block: 3%;
+  text-align: center;
+}
+.group .group_descr p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: hsla(251, 33%, 19%, 0.8);
+}
+
+.launch_btn {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
@@ -241,14 +193,16 @@ section.projects .group .project_descr a {
   border: 1px solid rgba(255, 255, 255, 0.23);
   background: rgba(255, 255, 255, 0.2);
   padding: 0.5em 1.4em;
+  display: inline-block;
+  margin-block: 3%;
   position: relative;
   transition: 0.5s;
 }
-section.projects .group .project_descr a:hover {
+.launch_btn:hover {
   padding-right: 1.7em;
   padding-left: 1.1em;
 }
-section.projects .group .project_descr a::after {
+.launch_btn::after {
   content: ">>";
   position: absolute;
   right: -10px;
@@ -256,9 +210,21 @@ section.projects .group .project_descr a::after {
   transition: 0.5s;
 }
 
-div.project_descr > a#launch_btn:hover:after {
+div.group_descr > a.launch_btn:hover:after {
   opacity: 1;
   right: 8px;
+}
+
+.launch_btn_simple {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5em 1.4em;
+  display: inline-block;
+  margin-block: 3%;
 }
 
 footer {
@@ -280,26 +246,30 @@ footer .footer_icon:hover {
 }
 
 /****************** MEDIA QUERIES ******************/
-@media screen and (max-width: 1200px) {
-  header {
-    height: 29rem;
+@media screen and (min-width: 1746px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   }
-  .about_section {
-    background: url(../media/bg_beet_vertical.png);
-    background-repeat: no-repeat;
-    background-position: right;
+}
+@media only screen and (min-width: 1420px) and (max-width: 1745px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   }
-  section.projects .group .project_descr ul {
-    margin-block: 1em 3em;
+}
+@media screen and (max-width: 921px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
 @media screen and (max-width: 800px) {
-  header nav {
+  nav {
     position: relative;
     align-items: center;
+    height: -moz-fit-content;
+    height: fit-content;
   }
-  header nav a {
-    height: 50px;
+  nav a {
+    height: clamp(30px, 8vw, 50px);
   }
   .hamburger {
     display: block;
@@ -322,7 +292,7 @@ footer .footer_icon:hover {
     background: rgba(255, 255, 255, 0.18);
     position: fixed;
     left: -120%;
-    top: 5rem;
+    top: 3rem;
     gap: 0;
     flex-direction: column;
     width: 100%;
@@ -340,34 +310,4 @@ footer .footer_icon:hover {
     transform: none;
     background-color: transparent;
   }
-  .about_section {
-    padding-inline: 1%;
-  }
-  .about_wrapper > p {
-    width: 80%;
-  }
-}
-@media screen and (min-width: 800px) {
-  section.projects {
-    padding: 6% 3%;
-  }
-  section.projects .group {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  section.projects .group .project_link {
-    cursor: default;
-  }
-  section.projects .group .project_descr {
-    visibility: visible;
-    position: static;
-    align-self: center;
-  }
-  div.reversed .project_link {
-    order: 2;
-  }
-  div.reversed .project_descr {
-    order: 1;
-  }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=projects.css.map */

@@ -54,7 +54,14 @@ a {
   color: inherit;
 }
 
-// css
+/****************** CSS ******************/
+// GENERAL CSS
+
+::selection {
+  background-color: #000000;
+  color: #f6ffde;
+}
+
 @font-face {
   font-family: "Misto";
   src: url("../fonts/Misto-r.ttf");
@@ -190,7 +197,6 @@ nav > ul.nav_menu.active {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left, right;
-  // border: solid black 1px;
   padding: 3% 5%;
 
   .about_wrapper {
@@ -312,8 +318,7 @@ footer {
   }
 }
 
-/***********************************************************************************/
-// MEDIA QUERIES
+/****************** MEDIA QUERIES ******************/
 
 @media screen and (max-width: 1200px) {
   header {
