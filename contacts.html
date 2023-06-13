@@ -19,10 +19,13 @@
       src="https://kit.fontawesome.com/937123d982.js"
       crossorigin="anonymous"
     ></script>
-    <title>Portfolio - Frontend Developer Kseniia Rudenko - About page</title>
-    <link rel="stylesheet" href="./css/about.css" />
+    <title>Portfolio - Frontend Developer Kseniia Rudenko - Contact page</title>
+    <link rel="stylesheet" href="./css/contacts.css" />
     <meta name="description" content="Frontend Developer Portfolio" />
-    <meta name="keywords" content="web development, frontend, dev web" />
+    <meta
+      name="keywords"
+      content="web development, frontend, dev web, contacts"
+    />
   </head>
   <body>
     <nav>
@@ -34,13 +37,13 @@
       </a>
       <ul class="nav_menu">
         <li class="nav_item">
-          <a href="#" class="nav_link nav_link_active">about me</a>
+          <a href="/about.html" class="nav_link">about me</a>
         </li>
         <li class="nav_item">
           <a href="/projects.html" class="nav_link">projects</a>
         </li>
         <li class="nav_item">
-          <a href="/contacts.html" class="nav_link">contacts</a>
+          <a href="#" class="nav_link nav_link_active">contacts</a>
         </li>
       </ul>
 
@@ -50,33 +53,47 @@
         <span class="bar"></span>
       </div>
     </nav>
-
-    <section class="main">
+    <div class="contact_wrapper">
+      <h1>Let's get in touch!</h1>
       <div class="group reversed">
-        <img src="./media/me.jpg" alt="Kseniia`s photo" class="group_img" />
-        <div class="group_descr">
-          <h1>
-            Hello,
-            <br />
-            My name is Kseniia
-          </h1>
-          <h2>I am a Front-end developer based in Europe</h2>
-          <p>
-            Coming from an accounting background to web development, I bring a
-            fresh perspective and a strong work ethic. My experience in gamedev
-            taught me the importance of teamwork, attention to detail, and
-            creative problem-solving, skills that I am eager to apply to web
-            development.
-          </p>
-          <p>
-            I approach work with a positive attitude and a collaborative
-            mindset, and I'm excited to join a team that shares the same values.
-          </p>
-          <p><strong>Let's build something great together!</strong></p>
-          <a href="projects.html" class="projects_btn">View projects</a>
+        <img src="./media/dill-removebg.png" alt="Dill" class="contact_img" />
+        <div class="contact_form">
+          <h4>Drop me a line</h4>
+          <form action="#">
+            <label for="name">Full name</label>
+            <input
+              type="text"
+              name="user_name"
+              id="name"
+              placeholder="What's your full name?"
+              required
+            />
+            <span class="contacts_bar"></span>
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              name="user_email"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+            <span class="contacts_bar"></span>
+            <label for="message">Message</label>
+            <textarea
+              name="user_message"
+              id="message"
+              cols="20"
+              rows="3"
+              required
+              maxlength="230"
+              placeholder="What's on your mind?"
+            ></textarea>
+            <span class="contacts_bar special"></span>
+            <input type="submit" value="Submit" />
+          </form>
         </div>
       </div>
-    </section>
+    </div>
     <footer>
       <a href="mailto:black.n.yellow@gmail.com">
         <i class="fa-solid fa-envelope footer_icon"></i>
