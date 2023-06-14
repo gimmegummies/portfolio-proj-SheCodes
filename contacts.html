@@ -67,6 +67,9 @@
               id="name"
               placeholder="What's your full name?"
               required
+              minlength="3"
+              maxlength="15"
+              pattern="[a-zA-Z]"
             />
             <span class="contacts_bar"></span>
             <label for="email">Email address</label>
@@ -76,6 +79,7 @@
               id="email"
               placeholder="you@example.com"
               required
+              pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}"
             />
             <span class="contacts_bar"></span>
             <label for="message">Message</label>
